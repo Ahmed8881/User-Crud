@@ -30,4 +30,46 @@ export class MainComponent implements OnInit {
     ];
     this.nextId = Math.max(...this.users.map(u => u.id)) + 1;
   }
+  getEmptyUser(): User {
+    return {
+      id: 0,
+      name: '',
+      email: '',
+      role: ''
+    };
+  }
+
+  saveUser() {
+    if (this.editMode) {
+      // Update existing user
+      const index = this.users.findIndex(u => u.id === this.currentUser.id);
+      if (index !== -1) {
+        this.users[index] = { ...this.currentUser };
+      }
+    } else {
+      // Add new user
+      this.users.push({
+        ...this.currentUser,
+        id: this.nextId++
+      });
+    }
+
+    // Reset form
+    this.currentUser = this.getEmptyUser();
+    this.editMode = false;
+  }
+
+  editUser(user: User) {
+    this.currentUser = { ...user };
+    this.editMode = true;
+  }
+
+  deleteUser(id: number) {
+    this.users = this.users.filter(user => user.id !== id);
+  }
+
+  cancelEdit() {
+    this.currentUser = this.getEmptyUser();
+    this.editMode = false;
+  }
 }
