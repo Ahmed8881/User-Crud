@@ -12,7 +12,7 @@ interface User {
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
