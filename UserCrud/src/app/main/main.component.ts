@@ -17,5 +17,9 @@ interface User {
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
+  users: User[] = [];
+  currentUser: User = this.getEmptyUser();
+  editMode = false;
+  nextId = 1;
 
 }
