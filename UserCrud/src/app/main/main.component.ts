@@ -25,8 +25,8 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     // Add some sample data
     this.users = [
-      { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Admin' },
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'User' }
+      { id: 1, name: 'Ahmed', email: 'Ahmed@example.com', role: 'Admin' },
+      { id: 2, name: 'Ali', email: 'ali@example.com', role: 'User' }
     ];
     this.nextId = Math.max(...this.users.map(u => u.id)) + 1;
   }
